@@ -15,12 +15,28 @@
 #include <fstream>
 
 int main() {
-	int num;
+	int user_menu;
+	std::string note;
+
+	
 	setlocale(LC_ALL, "Russian");
-	std::cout << "Welcome to Your Task Manager!\nЗдесь ты можешь вести учет выполненных дел, \nдобавлять новые задачи, контролировать дедлайны.\n\n";
-	std::cout << "Выберите действие:\n1. Добавить задачу в свой список.\n2. Выбрать свою задачу.\n3.Очистить список своих задач.\n\n";
-	std::cin >> num;
-	std::cout << "Итого:" << menu(num) << '\n';
+	std::cout << "Welcome to Your Task Manager!\nЗдесь ты можешь вести учет выполненных дел, добавлять новые задачи, контролировать дедлайны.\n\n";
+	show_menu();
+	std::cout << "Выберете пункт меню: \n";
+	std::cin >> user_menu;
+
+	switch (user_menu) {
+	case 1:
+		std::cout << "Добвьте задачу: \n";
+		std::getline(std::cin, note);
+		std::getline(std::cin, note);
+		add_note(note);
+		break;
+	case 2:
+		std::cout << "Вы видите список задач:\n";break;
+	case 3:
+		std::cout << "Вы очистили список:\n";break;
+	}
 
 	
 
