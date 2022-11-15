@@ -21,7 +21,7 @@ int main() {
 	std::string note;
 	SYSTEMTIME st;
 	GetLocalTime(&st);
-	std::cout << "Todays date: \n";
+	std::cout << "Today's date: \n";
 	std::cout << "Month:" << st.wMonth << '\n';
 	std::cout << "Date:" << st.wDay << '\n';
 	std::cout << "\n\n";
@@ -37,7 +37,7 @@ int main() {
 
 	switch (user_menu) {
 	case 1:
-		
+
 		std::getline(std::cin, note);
 		std::cout << " Добавьте задачу: ";
 		std::getline(std::cin, note);
@@ -50,7 +50,10 @@ int main() {
 	case 3:
 		std::cout << "Вы очистили список всех \n";
 		delete_all_notes();break;
+	case 4:
+		std::cout << "Работа программы завершена. Увидимся в следующий раз!\n";break;
 	};
+	
 
 	
 
