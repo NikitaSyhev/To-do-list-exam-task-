@@ -1,6 +1,7 @@
 #include <iostream>
 #include "TaskManager.h"
 #include <fstream>
+#include <ctime>
 
 
 
@@ -34,7 +35,9 @@ void show_note() {
 		std::string str;
 		if (in.is_open()) {
 			for (int i = 1; !in.eof(); i++) {
-				getline(in, str);													
+				getline(in, str);
+				if (str.empty())
+					continue;
 				std::cout << i << ". " << str << '\n';
 			}
 		}

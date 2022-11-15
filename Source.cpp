@@ -13,6 +13,7 @@
 #include <string>
 #include "TaskManager.h"
 #include <fstream>
+#include <ctime>
 
 int main() {
 	int user_menu;
@@ -25,11 +26,13 @@ int main() {
 	std::cout << "Выберете пункт меню: ";
 	std::cin >> user_menu;
 
+	std::cout << "\n";
+
 	switch (user_menu) {
 	case 1:
 		
 		std::getline(std::cin, note);
-		std::cout << " Добвьте задачу: ";
+		std::cout << " Добавьте задачу: ";
 		std::getline(std::cin, note);
 		add_note(note);
 	
@@ -38,7 +41,7 @@ int main() {
 		std::cout << "Вы видите список задач:\n";
 		show_note();break;
 	case 3:
-		std::cout << "Вы очистили список всех задач. Теперь список пустой.\n";
+		std::cout << "Вы очистили список всех \n";
 		delete_all_notes();break;
 	};
 

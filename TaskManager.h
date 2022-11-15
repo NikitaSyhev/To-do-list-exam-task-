@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <ctime>
 
 void show_menu(); // вывод изначального меню 
 
