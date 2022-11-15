@@ -2,8 +2,9 @@
 #include <iostream>
 #include <string>
 
-void show_menu(); // вывод изначального меню ( может быть без нее )
-int menu(int x); //работа с меню
+void show_menu(); // вывод изначального меню 
+
 void add_note(std::string);//добавить заметку
+
+void show_note();  // показать список задач
 void delete_note(); //удалить заметку
-	

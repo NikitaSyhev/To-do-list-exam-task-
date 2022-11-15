@@ -22,21 +22,24 @@ int main() {
 	setlocale(LC_ALL, "Russian");
 	std::cout << "Welcome to Your Task Manager!\nЗдесь ты можешь вести учет выполненных дел, добавлять новые задачи, контролировать дедлайны.\n\n";
 	show_menu();
-	std::cout << "Выберете пункт меню: \n";
+	std::cout << "Выберете пункт меню: ";
 	std::cin >> user_menu;
 
 	switch (user_menu) {
 	case 1:
-		std::cout << "Добвьте задачу: \n";
+		
 		std::getline(std::cin, note);
+		std::cout << " Добвьте задачу: ";
 		std::getline(std::cin, note);
 		add_note(note);
+	
 		break;
 	case 2:
-		std::cout << "Вы видите список задач:\n";break;
+		std::cout << "Вы видите список задач:\n";
+		show_note();break;
 	case 3:
 		std::cout << "Вы очистили список:\n";break;
-	}
+	};
 
 	
 

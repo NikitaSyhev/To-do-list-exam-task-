@@ -22,12 +22,22 @@ void add_note(std::string str) {     //здесь нужно сделать дату ( дедлайн ), кот
 	}
 	else
 		std::cout << "Ошибка добавления задачи.\n";
+
 	out.close();
+
+	std::cout << "Задача добавлена.\n";
 }
 
-void delete_note() {
-	std::string path = "file.txt";
-	std::ifstream in;
-	in.open(path);
-
+void show_note() {
+		std::ifstream in;
+		in.open("file.txt");
+		std::string str;
+		if (in.is_open()) {
+			while (getline(in, str))
+				std::cout << str << '\n';
+		}
+		else
+		std::cout << "Задачи еще не добавлены.\n";
+		in.close();
 }
+
