@@ -14,10 +14,17 @@
 #include "TaskManager.h"
 #include <fstream>
 #include <ctime>
+#include <windows.h>
 
 int main() {
 	int user_menu;
 	std::string note;
+	SYSTEMTIME st;
+	GetLocalTime(&st);
+	std::cout << "Todays date: \n";
+	std::cout << "Month:" << st.wMonth << '\n';
+	std::cout << "Date:" << st.wDay << '\n';
+	std::cout << "\n\n";
 
 	
 	setlocale(LC_ALL, "Russian");
@@ -44,6 +51,8 @@ int main() {
 		std::cout << "Вы очистили список всех \n";
 		delete_all_notes();break;
 	};
+
+	
 
 	
 
