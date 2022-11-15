@@ -7,4 +7,4 @@ void show_menu(); // вывод изначального меню
 void add_note(std::string);//добавить заметку
 
 void show_note();  // показать список задач
-void delete_note(); //удалить заметку
+void delete_all_notes(); //удалить заметку

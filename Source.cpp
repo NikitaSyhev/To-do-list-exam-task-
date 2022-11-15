@@ -38,7 +38,8 @@ int main() {
 		std::cout << "Вы видите список задач:\n";
 		show_note();break;
 	case 3:
-		std::cout << "Вы очистили список:\n";break;
+		std::cout << "Вы очистили список всех задач. Теперь список пустой.\n";
+		delete_all_notes();break;
 	};
 
 	

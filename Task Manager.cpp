@@ -33,11 +33,17 @@ void show_note() {
 		in.open("file.txt");
 		std::string str;
 		if (in.is_open()) {
-			while (getline(in, str))
-				std::cout << str << '\n';
+			for (int i = 1; !in.eof(); i++) {
+				getline(in, str);													
+				std::cout << i << ". " << str << '\n';
+			}
 		}
 		else
 		std::cout << "Задачи еще не добавлены.\n";
 		in.close();
+}
+
+void delete_all_notes() {
+	remove("file.txt");
 }
 
