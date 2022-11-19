@@ -1,4 +1,6 @@
-Make a function
-Срок выполнения и статус: 20.11.2022 0
-Make a search of function
-Срок выполнения и статус: 19.11.2022 0
+Make a search
+Срок выполнения и статус: 19.11.22 0
+Make an opportunity to edit
+Срок выполнения и статус: 19.11.22 0
+Make a function: show all notes
+Срок выполнения и статус: 19.11.22 1

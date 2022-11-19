@@ -17,7 +17,7 @@ void show_menu() {
 	std::cout << "5. Выход из программы." << '\n';
 }
 
-void add_note(std::string& str) {     //здесь нужно сделать дату ( дедлайн ), который не отображается
+void add_note(std::string& str) {     
 	std::string path = "file.txt";
 	std::ofstream out;
 	out.open(path, std::ios::app);
@@ -39,7 +39,7 @@ void add_note_status(std::string& str) {
 
 	if (out.is_open()) { 
 		std::string tmp;
-		out << "Срок выполнения и статус: " << str + '\n'; // добавление записи в файл, где + - конкатинация строк
+		out << "Срок выполнения и статус: " << str + "\n"; // добавление записи в файл, где + - конкатинация строк
 	}
 	else
 		std::cout << "Ошибка открытия файла.\n";
@@ -59,21 +59,25 @@ void note_date_status(std::string&) {
 }
 
 void show_note() {
-		std::ifstream in;
-		in.open("file.txt");
-		std::string str;
-		if (in.is_open()) {
-			for (int i = 1; !in.eof(); i++) {
-				getline(in, str);
-				if (str.empty())
-					continue;
-				std::cout << i << ". " << str << '\n';
-			}
-		}
-		else
-		std::cout << "Задачи еще не добавлены.\n";
-		in.close();
+	std::ifstream in;
+	in.open("file.txt");
+	std::string str;
+	if (!in.is_open()) {
+		std::cout << "Задачи еще не добавлены. Добавьте их!.\n";
+		return;
+	}
+
+	for (int i = 1; !in.eof(); i++) {
+		getline(in, str);
+		if (str.empty()) continue;
+		if (i % 2 != 0 ) 
+			std::cout << str << '\n';
+
+
+	}
+	in.close();
 }
+
 
 void delete_all_notes() {
 	remove("file.txt");
