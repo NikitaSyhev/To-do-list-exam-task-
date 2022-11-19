@@ -29,7 +29,33 @@ void add_note(std::string& str) {     //здесь нужно сделать дату ( дедлайн ), ко
 
 	out.close();
 
-	std::cout << "Задача добавлена.\n";
+	
+}
+void add_note_status(std::string& str) {
+
+	std::string path = "file.txt";
+	std::ofstream out;
+	out.open(path, std::ios::app);
+
+	if (out.is_open()) { 
+		std::string tmp;
+		out << "Срок выполнения и статус: " << str + '\n'; // добавление записи в файл, где + - конкатинация строк
+	}
+	else
+		std::cout << "Ошибка открытия файла.\n";
+	std::cout << "Задача успешно добавлена.\n";
+
+	out.close(); //закрытие файла
+
+
+	
+
+}
+
+void note_date_status(std::string&) {
+
+
+
 }
 
 void show_note() {
@@ -79,19 +105,5 @@ void edit_notes() {
 	std::string notes;
 	std::cin >> notes;
 
-	std::ifstream in;
-
-	in.open("file.txt");
-	std::getline(in, notes);
-	if (in.is_open()) {
-		while (!in.eof()) { // пока курсор не в конце файла
-
-			in >> notes; // запись слова из файла в строку
-			std::cout << notes << '\n'; // вывод содержимого файла
-		}
-	}
-	else
-		std::cout << "File opening error\n";
-	in.close();
-
+	
 }
