@@ -83,9 +83,11 @@ void delete_all_notes() {
 	remove("file.txt");
 }
 
-std::string* find_one_note( std::string& note_to_find) {
-	return 0;
+std::string* find_one_note(const std::string& note_to_find)
+{
+	return nullptr;
 }
+
 
 void edit_notes() {
 
@@ -110,4 +112,39 @@ void edit_notes() {
 	std::cin >> notes;
 
 	
+}
+
+std::string* find_one_note(const std::string& note_to_find, int& n_count) {
+	std::ifstream file("file.txt");
+	
+
+	std::string one_note;
+	std::string* found_notes = nullptr;
+	std::string* found_notes_tmp = nullptr;
+	int count = 0;
+
+	while (!file.eof()) {
+		std::getline(file, one_note);
+		if (one_note.find(note_to_find) != -1) {
+			count++;
+			found_notes_tmp = new std::string[count];
+			for (int i = 0; i < count - 1; i++) 
+				found_notes_tmp[i] = found_notes[i];
+			
+			found_notes_tmp[count - 1] = one_note;
+
+			delete[] found_notes;
+
+			found_notes = found_notes_tmp;
+			found_notes_tmp = nullptr;
+			
+
+		}
+	}
+
+	file.close();
+
+	n_count = count;
+
+	return found_notes;
 }

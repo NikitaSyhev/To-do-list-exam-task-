@@ -23,7 +23,7 @@
 #include <fstream>
 #include <ctime>
 #include <windows.h>
-#include <cstdlib>       //что за библиотека
+#include <cstdlib>      
 
 int main() {
 
@@ -31,6 +31,10 @@ int main() {
 	int user_menu;
 	string note;
 	string note_date_status;
+	string note_to_find;
+	int n_found = 0;
+	string* found_notes = find_one_note(note_to_find, n_found);
+	
 
 	SYSTEMTIME st;
 	GetLocalTime(&st);
@@ -54,62 +58,40 @@ int main() {
 		std::cout << " Добавьте задачу: ";
 		std::getline(std::cin, note);
 		add_note(note);
-		
+
 		std::cout << "Добавьте дату выполнения и статус: выполнено - 1, не выполнено - 0.\n ";
 		std::getline(std::cin, note_date_status);
 		add_note_status(note_date_status);
-	
+
+
 		break;
 	case 2:
 		std::cout << "Вы видите список задач:\n";
 		show_note();break;
 	case 3:
-		
-		edit_notes();
-		
+		std::getline(std::cin, note_to_find);
+		std::cout << "Введите ключевое слово для поиска: \n";
+		std::getline(std::cin, note_to_find);
+
+		find_one_note(note_to_find, n_found);
+
+		for (int i = 1; i < n_found; i++)
+			std::cout << *(find_one_note(note_to_find, n_found)) << 'n';
+
+
+
+		delete[] found_notes;
+
 		break;
 	case 4:
 		std::cout << "Вы очистили список всех задач.\n";
 		delete_all_notes();break;
 	case 5:
 		std::cout << "Работа программы завершена. Увидимся в следующий раз!\n";break;
-	
+
 	default:std::cout << "Вы выбрали некорректный пункт меню.\n";
 	}
-	
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	return 0;
 }
-/*std::getline(std::cin, note_to_find);
-std::cout << "Поиск и выбор задач:";
-std::getline(std::cin, note_to_find);
-
-int n_found = 0;
-
-std::string** found_notes = find_one_note(note_to_find, n_found);
-
-std::cout << "Найденные задачи: \n";
-for (int i = 0; i < n_found; i++)
-	std::cout << **(found_notes + i) << '\n';
-	*/

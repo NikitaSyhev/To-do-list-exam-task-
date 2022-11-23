@@ -12,7 +12,4 @@ void show_note();  // показать список задач
 void delete_all_notes(); //удалить заметку
 
 
-
-std::string* find_one_note( std::string& note_to_find);
-
-void edit_notes();
+std::string* find_one_note(const std::string& note_to_find, int& n_count);
