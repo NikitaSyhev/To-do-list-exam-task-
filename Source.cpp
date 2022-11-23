@@ -76,11 +76,10 @@ int main() {
 		find_one_note(note_to_find, n_found);
 
 		for (int i = 1; i < n_found; i++)
-			std::cout << *(find_one_note(note_to_find, n_found)) << 'n';
-
-
+			std::cout << *(found_notes) << '\n';
 
 		delete[] found_notes;
+
 
 		break;
 	case 4:

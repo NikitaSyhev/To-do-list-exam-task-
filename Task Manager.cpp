@@ -52,11 +52,6 @@ void add_note_status(std::string& str) {
 
 }
 
-void note_date_status(std::string&) {
-
-
-
-}
 
 void show_note() {
 	std::ifstream in;
@@ -83,36 +78,8 @@ void delete_all_notes() {
 	remove("file.txt");
 }
 
-std::string* find_one_note(const std::string& note_to_find)
-{
-	return nullptr;
-}
 
 
-void edit_notes() {
-
-	std::ifstream in;
-	in.open("file.txt");
-	std::string str;
-	if (in.is_open()) {
-		for (int i = 1; !in.eof(); i++) {
-			getline(in, str);
-			if (str.empty())
-				continue;
-			std::cout << i << ". " << str << '\n';
-		}
-	}
-	else
-		std::cout << "«адачи еще не добавлены.\n";
-	in.close();
-
-
-	std::cout << "¬ыберете заметку, которую хотите редактировать / удалить.\n";
-	std::string notes;
-	std::cin >> notes;
-
-	
-}
 
 std::string* find_one_note(const std::string& note_to_find, int& n_count) {
 	std::ifstream file("file.txt");
@@ -132,7 +99,6 @@ std::string* find_one_note(const std::string& note_to_find, int& n_count) {
 				found_notes_tmp[i] = found_notes[i];
 			
 			found_notes_tmp[count - 1] = one_note;
-
 			delete[] found_notes;
 
 			found_notes = found_notes_tmp;
